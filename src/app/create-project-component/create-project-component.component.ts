@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl, AbstractControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
@@ -9,6 +9,8 @@ import { ModalService } from '../services/model.service';
 import { UserModel } from '../models/User';
 import { AppSettings } from '../models/AppSettings';
 import { LoggingService } from '../services/logging.service';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { ProjectListComponentComponent } from '../project-list-component/project-list-component.component';
 
 @Component({
   selector: 'app-create-project-component',
@@ -29,6 +31,9 @@ export class CreateProjectComponentComponent implements OnInit {
   searchManager: string;
 
   @Input() project: ProjectModel;
+// @ViewChild()
+@ViewChild(ProjectListComponentComponent) projManagerComp: ProjectListComponentComponent ;
+ 
 
   addButtonTitle = 'Add';
   pageTitle = 'Add Project';
@@ -45,9 +50,11 @@ export class CreateProjectComponentComponent implements OnInit {
     private _loggingService: LoggingService,
     private _datePipe: DatePipe) {
     this.OnComponentLoad();
+
   }
 
   OnComponentLoad() {
+    console.log('REload');
     this.pageMessage = '';
     this.project = new ProjectModel();
 
@@ -55,6 +62,7 @@ export class CreateProjectComponentComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log('REload');
     const today = new Date();
     const endDate = new Date();
     endDate.setDate(today.getDate() + 1);
@@ -71,7 +79,7 @@ export class CreateProjectComponentComponent implements OnInit {
         userId: [this.userId]
       });
 
-    this.setStartAndEndDate(today, endDate);
+  //  this.setStartAndEndDate(today, endDate);
 
     this._activatedRoute.paramMap.subscribe(pm => {
       const id = +pm.get('id');
@@ -187,9 +195,10 @@ export class CreateProjectComponentComponent implements OnInit {
 
     this._projectService.createOrUpdateProject(this.projectForm.value)
       .subscribe((data) => {
-        this.resetForm();
+
         this.displayPageMessage(AppSettings.AlertSuccess, 'Project details has been successfully saved/updated.');
-        this._router.navigate(['/projects/0?r=' + Math.floor(Math.random() * 1000)]);
+        this.resetForm();
+        this.projManagerComp.getAllProjects();
       },
         (erorr) => {
           this._loggingService.LogError(erorr);

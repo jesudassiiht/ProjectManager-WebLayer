@@ -6,9 +6,11 @@ import { UserListComponentComponent } from './user-list-component/user-list-comp
 import { CreateProjectComponentComponent } from './create-project-component/create-project-component.component';
 import { CreateTaskComponentComponent } from './create-task-component/create-task-component.component';
 import { ListTaskComponentComponent } from './list-task-component/list-task-component.component';
+import { ProjectListComponentComponent } from './project-list-component/project-list-component.component';
 
 export const routes: Routes = [
-  { 'path': '', redirectTo: 'projects/0', pathMatch: 'full' },
+  // // { 'path': '', component: ProjectListComponentComponent },
+   { 'path': '', redirectTo: 'projects/0', pathMatch: 'full' },
   { 'path': 'users/:id', component: CreateUserComponentComponent },
   { 'path': 'projects/:id', component: CreateProjectComponentComponent },
   { 'path': 'tasks/:id', component: CreateTaskComponentComponent },
