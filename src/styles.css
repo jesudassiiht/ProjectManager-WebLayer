@@ -1,0 +1,148 @@
+/* You can add global styles to this file, and also import other style files */
+.active
+{    
+    font-weight: bold;    
+    background-color: #94A3B1;    
+}
+
+.body-content { 
+    min-height: 550px;
+}
+
+navbar  {
+    background-color: #DDDDDD;
+}
+
+footer {    
+    margin-top: 20px;
+    padding: 25px;    
+    background-color: #DDDDDD;
+    text-align: center;    
+}
+
+.container
+{
+ margin-top:20px;   
+}
+
+.mandatory{ color: red;}
+
+/* Custom styles */
+/* MODAL STYLES
+-------------------------------*/
+modal {
+    /* modals are hidden by default */  
+    display: none;
+  }
+
+  modal .modal-container {
+    /* modal container fixed across whole screen */
+  
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    /* z-index must be higher than .modal-background */
+  
+    z-index: 1000;
+    /* enables scrolling for tall modals */
+  
+    overflow: auto;
+  }
+  modal .modal-container .modal-body {
+    padding: 20px;
+    background: #fff;
+    /* margin exposes part of the modal background */
+  
+    margin:5% 10% 5% 20%;
+    
+    min-height: 80%;  
+    width: 60%;
+    overflow: scroll;     
+  }
+  modal .modal-background {
+    /* modal background fixed across whole screen */
+  
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    /* semi-transparent black  */
+  
+    background-color: #000;
+    opacity: 0.75;
+    /* z-index must be below .modal and above everything else  */
+    
+    z-index: 900;
+  }
+  
+  body.modal-open {
+    /* body overflow is hidden to hide main scrollbar when modal window is open */
+  
+    overflow: hidden;
+  }
+  .cust-navbar-top{
+    background: #FFA57A;
+    box-shadow: 0 0 10px #792d01;
+  }
+  
+  .cust-project, .cust-addproj-out{
+    border: 1px solid #ccc;
+    padding: 20px;
+    -moz-box-shadow:    inset 0 0 4px #ccc7c7;
+    -webkit-box-shadow: inset 0 0 4px #ccc7c7;
+    box-shadow:        inset 0 0 4px #ccc7c7;
+  } 
+  .cust-add-btn{
+    background: #e66324;
+    border-color: #da4700;
+    color: #fff;
+  }
+  .cust-add-btn:hover, .cust-add-btn:focus, .cust-add-btn:active {
+    background: #ca4201 !important;
+    border-color: #b53b00 !important;
+    box-shadow:0 0 0.2rem #b53b00 !important;
+  }
+  .cust-reset-btn{
+    background: #e03624 ;
+    border-color: #ac1201 ;
+    color: #fff;
+  }
+  .cust-reset-btn:hover, .cust-reset-btn:focus, .cust-reset-btn:active {
+    background: #ac1201 !important;
+    border-color: #740c01 !important;
+    box-shadow:0 0 0.2rem #ac1201 !important;
+  }
+  .cust-nav-bar{
+    background: #e66324;
+    border:0.5px solid  rgba(218, 71, 1, 0.75);
+    color: #fff;
+  }
+  .cust-nav-bar a{
+    color: #fff !important;
+  }
+  .cust-nav-bar:hover{
+    background: #9c3a00;
+    border-color: #7d2f00;
+  }
+  .cust-nav-bar.active a{
+    color: #fff !important;
+  }
+  .cust-nav-bar.active {
+    background: #9c3a00 !important;
+    border-color: #7d2f00 !important;
+    box-shadow: 0 0 2px #9c3a00;
+}
+
+.cust-add-btn.disabled, .cust-add-btn.disabled{
+  background: #e66324 !important;
+  border-color: #da4700 !important;
+  
+}
+.cust-reset-btn.disabled, .cust-reset-btn.disabled{
+  background: #e03624 !important;
+  border-color: #ac1201 !important;
+  
+}
